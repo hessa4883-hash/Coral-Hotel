@@ -216,13 +216,36 @@ const form = document.querySelector("form");
 form.addEventListener("submit", function(event) {
     event.preventDefault();
 
-    const bookingNumber = "CORAL-" + Math.floor(10000 + Math.random() * 90000);
+    const inputs = form.querySelectorAll("input");
+    const selects = form.querySelectorAll("select");
+
+    const bookingNumber =
+        "CORAL-" + Math.floor(10000 + Math.random() * 90000);
+
+    const booking = {
+        number: bookingNumber,
+        name: inputs[0].value,
+        phone: inputs[1].value,
+        room: selects[0].value,
+        checkIn: inputs[2].value,
+        checkOut: inputs[3].value,
+        people: inputs[4].value,
+        payment: selects[1].value
+    };
+
+    let bookings =
+        JSON.parse(localStorage.getItem("coralBookings")) || [];
+
+    bookings.push(booking);
+
+    localStorage.setItem(
+        "coralBookings",
+        JSON.stringify(bookings)
+    );
 
     alert(
-        "✅ تم إرسال الحجز بنجاح!\n\n" +
-        "🎫 رقم الحجز: " + bookingNumber + "\n" +
-        " فندق كورال\n\n" +
-        "سنتواصل معك لتأكيد الحجز."
+        "✅ تم الحجز بنجاح!\n\n" +
+        "🎫 رقم الحجز: " + bookingNumber
     );
 
     form.reset();
