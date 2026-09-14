@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة إدارة فندق كورال</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
+
+        header {
+            background: #0d6efd;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px #ccc;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background: #0d6efd;
+            color: white;
+        }
+
+        .empty {
+            text-align: center;
+            padding: 30px;
+            color: #777;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>🏨 لوحة إدارة فندق كورال</h1>
+    <p>إدارة ومتابعة الحجوزات</p>
+</header>
+
+<div class="card">
+    <h2>📋 الحجوزات</h2>
+
+    <table>
+        <tr>
+            <th>رقم الحجز</th>
+            <th>اسم النزيل</th>
+            <th>الغرفة</th>
+            <th>الدخول</th>
+            <th>الخروج</th>
+            <th>طريقة الدفع</th>
+        </tr>
+
+        <tr>
+            <td colspan="6" class="empty">
+                لا توجد حجوزات حالياً
+            </td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>
