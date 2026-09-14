@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,13 +18,13 @@
         header {
             background: #123b4a;
             color: white;
-            padding: 20px;
             text-align: center;
+            padding: 25px;
         }
 
         nav {
             background: #0b2934;
-            padding: 12px;
+            padding: 15px;
             text-align: center;
         }
 
@@ -31,51 +32,67 @@
             color: white;
             text-decoration: none;
             margin: 10px;
+            font-weight: bold;
         }
 
         .hero {
-            padding: 70px 20px;
+            background: #e8f1f5;
             text-align: center;
-            background: white;
+            padding: 60px 20px;
         }
 
         .hero h1 {
-            font-size: 40px;
-            margin-bottom: 10px;
-        }
-
-        .hero p {
-            font-size: 20px;
-        }
-
-        .button {
-            display: inline-block;
-            background: #d4a84f;
-            color: white;
-            padding: 14px 30px;
-            border-radius: 8px;
-            text-decoration: none;
-            margin-top: 20px;
+            font-size: 35px;
         }
 
         .section {
             padding: 40px 20px;
-            text-align: center;
+            max-width: 1000px;
+            margin: auto;
         }
 
         .cards {
             display: flex;
-            justify-content: center;
             gap: 20px;
             flex-wrap: wrap;
+            justify-content: center;
         }
 
         .card {
             background: white;
-            width: 250px;
             padding: 25px;
             border-radius: 12px;
-            box-shadow: 0 3px 10px #ccc;
+            width: 250px;
+            text-align: center;
+            box-shadow: 0 2px 8px #ccc;
+        }
+
+        .button {
+            background: #0d6efd;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 12px;
+            margin-top: 5px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 7px;
+        }
+
+        form {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px #ccc;
         }
 
         footer {
@@ -83,6 +100,7 @@
             color: white;
             text-align: center;
             padding: 20px;
+            margin-top: 30px;
         }
     </style>
 </head>
@@ -90,23 +108,23 @@
 <body>
 
 <header>
-    <h1> فندق كورال</h1>
+    <h1>🏨 فندق كورال</h1>
     <p>مرحباً بكم في Coral Hotel</p>
 </header>
 
 <nav>
-    <a href="#">الرئيسية</a>
+    <a href="#home">الرئيسية</a>
     <a href="#rooms">الغرف</a>
     <a href="#services">الخدمات</a>
     <a href="#booking">الحجز</a>
     <a href="#contact">التواصل</a>
-<a href="admin.html"> لوحة المدير</a>
+    <a href="admin.html">👨‍💼 لوحة المدير</a>
 </nav>
 
-<section class="hero">
-    <h1>أهلاً بكم في فندق كورال</h1>
-    <p>راحة، جودة وخدمة مميزة لضيوفنا</p>
-
+<section class="hero" id="home">
+    <h1>مرحباً بكم في فندق كورال 🏨</h1>
+    <p>إقامة مريحة وخدمات مميزة لضيوفنا</p>
+    <br>
     <a class="button" href="#booking">احجز الآن</a>
 </section>
 
@@ -118,19 +136,19 @@
         <div class="card">
             <h3>غرفة فردية</h3>
             <p>غرفة مريحة لشخص واحد</p>
-            <p>السعر: 50$</p>
+            <h3>50$</h3>
         </div>
 
         <div class="card">
             <h3>غرفة مزدوجة</h3>
-            <p>غرفة مريحة لشخصين</p>
-            <p>السعر: 80$</p>
+            <p>غرفة مناسبة لشخصين</p>
+            <h3>80$</h3>
         </div>
 
         <div class="card">
             <h3>جناح فاخر</h3>
-            <p>جناح واسع ومميز</p>
-            <p>السعر: 120$</p>
+            <p>إقامة فاخرة ومريحة</p>
+            <h3>120$</h3>
         </div>
 
     </div>
@@ -142,95 +160,131 @@
     <div class="cards">
 
         <div class="card">
-            <h3>🍽️ المطعم</h3>
-            <p>خدمة المطعم للضيوف</p>
+            <h3>📅 الحجوزات</h3>
+            <p>حجز الغرف بسهولة</p>
         </div>
 
         <div class="card">
-            <h3>📞 خدمة العملاء</h3>
-            <p>متواجدون لخدمتكم</p>
+            <h3>🍽️ المطعم</h3>
+            <p>خدمات الطعام والشراب</p>
         </div>
 
         <div class="card">
             <h3>💳 الدفع</h3>
-            <p>خيارات دفع سهلة وآمنة</p>
+            <p>عدة طرق للدفع</p>
+        </div>
+
+        <div class="card">
+            <h3>📞 خدمة العملاء</h3>
+            <p>نحن دائماً لخدمتكم</p>
         </div>
 
     </div>
 </section>
 
 <section class="section" id="booking">
+
     <h2>📅 احجز غرفتك الآن</h2>
 
-    <form>
-        <label>الاسم الكامل:</label><br>
-        <input type="text" placeholder="اكتب اسمك" required><br><br>
+    <form id="bookingForm">
 
-        <label>رقم الهاتف:</label><br>
-        <input type="tel" placeholder="رقم الهاتف" required><br><br>
+        <label>الاسم الكامل:</label>
+        <input type="text" id="name" placeholder="اكتب اسمك" required>
 
-        <label>نوع الغرفة:</label><br>
-        <select required>
+        <br><br>
+
+        <label>رقم الهاتف:</label>
+        <input type="tel" id="phone" placeholder="رقم الهاتف" required>
+
+        <br><br>
+
+        <label>نوع الغرفة:</label>
+        <select id="room" required>
             <option value="">اختر الغرفة</option>
             <option>غرفة فردية</option>
             <option>غرفة مزدوجة</option>
             <option>جناح فاخر</option>
-        </select><br><br>
+        </select>
 
-        <label>تاريخ الدخول:</label><br>
-        <input type="date" required><br><br>
+        <br><br>
 
-        <label>تاريخ الخروج:</label><br>
-        <input type="date" required><br><br>
+        <label>تاريخ الدخول:</label>
+        <input type="date" id="checkIn" required>
 
-        <label>عدد الأشخاص:</label><br>
-<label>طريقة الدفع:</label><br>
+        <br><br>
 
-<select required>
-    <option value="">اختر طريقة الدفع</option>
-    <option>الدفع عند الوصول</option>
-    <option>تحويل بنكي</option>
-    <option>بطاقة بنكية</option>
-</select>
+        <label>تاريخ الخروج:</label>
+        <input type="date" id="checkOut" required>
 
-<br><br>
-        <input type="number" min="1" max="10" value="1" required><br><br>
+        <br><br>
 
-        <button class="button" type="submit">تأكيد الحجز</button>
+        <label>عدد الأشخاص:</label>
+        <input type="number" id="people" min="1" max="10" value="1" required>
+
+        <br><br>
+
+        <label>طريقة الدفع:</label>
+        <select id="payment" required>
+            <option value="">اختر طريقة الدفع</option>
+            <option>الدفع عند الوصول</option>
+            <option>تحويل بنكي</option>
+            <option>بطاقة بنكية</option>
+        </select>
+
+        <br><br>
+
+        <button class="button" type="submit">
+            تأكيد الحجز
+        </button>
+
     </form>
-</section>
+
 </section>
 
 <section class="section" id="contact">
+
     <h2>📞 تواصل معنا</h2>
+
     <p>الهاتف: 000000000</p>
-    <p>البريد الإلكتروني: coralhotel@example.com</p>
+
+    <p>البريد الإلكتروني:
+        coralhotel@example.com
+    </p>
+
 </section>
 
 <footer>
     <p>© 2026 Coral Hotel - جميع الحقوق محفوظة</p>
 </footer>
+
 <script>
-const form = document.querySelector("form");
+
+const form = document.getElementById("bookingForm");
 
 form.addEventListener("submit", function(event) {
-    event.preventDefault();
 
-    const inputs = form.querySelectorAll("input");
-    const selects = form.querySelectorAll("select");
+    event.preventDefault();
 
     const bookingNumber =
         "CORAL-" + Math.floor(10000 + Math.random() * 90000);
 
     const booking = {
+
         number: bookingNumber,
-        name: inputs[0].value,
-        phone: inputs[1].value,
-        room: selects[0].value,
-        checkIn: inputs[2].value,
-        checkOut: inputs[3].value,
-        people: inputs[4].value,
-        payment: selects[1].value
+
+        name: document.getElementById("name").value,
+
+        phone: document.getElementById("phone").value,
+
+        room: document.getElementById("room").value,
+
+        checkIn: document.getElementById("checkIn").value,
+
+        checkOut: document.getElementById("checkOut").value,
+
+        people: document.getElementById("people").value,
+
+        payment: document.getElementById("payment").value
     };
 
     let bookings =
@@ -245,11 +299,16 @@ form.addEventListener("submit", function(event) {
 
     alert(
         "✅ تم الحجز بنجاح!\n\n" +
-        "🎫 رقم الحجز: " + bookingNumber
+        "🎫 رقم الحجز: " + bookingNumber + "\n\n" +
+        "🏨 فندق كورال\n" +
+        "شكراً لاختياركم فندق كورال."
     );
 
     form.reset();
+
 });
+
 </script>
+
 </body>
 </html>
