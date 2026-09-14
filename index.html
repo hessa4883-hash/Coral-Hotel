@@ -3,27 +3,177 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>فندق كورال</title>
+
+    <title>فندق كورال | Coral Hotel</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background: #123b4a;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background: #0b2934;
+            padding: 12px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 10px;
+        }
+
+        .hero {
+            padding: 70px 20px;
+            text-align: center;
+            background: white;
+        }
+
+        .hero h1 {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 20px;
+        }
+
+        .button {
+            display: inline-block;
+            background: #d4a84f;
+            color: white;
+            padding: 14px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+
+        .section {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: white;
+            width: 250px;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px #ccc;
+        }
+
+        footer {
+            background: #123b4a;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
 </head>
 
 <body>
 
+<header>
     <h1>🏨 فندق كورال</h1>
+    <p>مرحباً بكم في Coral Hotel</p>
+</header>
 
-    <p>مرحباً بكم في فندق كورال</p>
+<nav>
+    <a href="#">الرئيسية</a>
+    <a href="#rooms">الغرف</a>
+    <a href="#services">الخدمات</a>
+    <a href="#booking">الحجز</a>
+    <a href="#contact">التواصل</a>
+</nav>
 
-    <h2>خدماتنا</h2>
+<section class="hero">
+    <h1>أهلاً بكم في فندق كورال</h1>
+    <p>راحة، جودة وخدمة مميزة لضيوفنا</p>
 
-    <ul>
-        <li>حجز الغرف</li>
-        <li>خدمة العملاء</li>
-        <li>المطعم</li>
-        <li>خدمة الدفع</li>
-    </ul>
+    <a class="button" href="#booking">احجز الآن</a>
+</section>
 
-    <h2>احجز غرفتك الآن</h2>
+<section class="section" id="rooms">
+    <h2>🛏️ الغرف</h2>
 
-    <button>احجز الآن</button>
+    <div class="cards">
+
+        <div class="card">
+            <h3>غرفة فردية</h3>
+            <p>غرفة مريحة لشخص واحد</p>
+            <p>السعر: 50$</p>
+        </div>
+
+        <div class="card">
+            <h3>غرفة مزدوجة</h3>
+            <p>غرفة مريحة لشخصين</p>
+            <p>السعر: 80$</p>
+        </div>
+
+        <div class="card">
+            <h3>جناح فاخر</h3>
+            <p>جناح واسع ومميز</p>
+            <p>السعر: 120$</p>
+        </div>
+
+    </div>
+</section>
+
+<section class="section" id="services">
+    <h2>🛎️ خدماتنا</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>🍽️ المطعم</h3>
+            <p>خدمة المطعم للضيوف</p>
+        </div>
+
+        <div class="card">
+            <h3>📞 خدمة العملاء</h3>
+            <p>متواجدون لخدمتكم</p>
+        </div>
+
+        <div class="card">
+            <h3>💳 الدفع</h3>
+            <p>خيارات دفع سهلة وآمنة</p>
+        </div>
+
+    </div>
+</section>
+
+<section class="section" id="booking">
+    <h2>📅 احجز غرفتك</h2>
+    <p>اضغط على الزر للبدء في عملية الحجز.</p>
+
+    <a class="button" href="#">ابدأ الحجز</a>
+</section>
+
+<section class="section" id="contact">
+    <h2>📞 تواصل معنا</h2>
+    <p>الهاتف: 000000000</p>
+    <p>البريد الإلكتروني: coralhotel@example.com</p>
+</section>
+
+<footer>
+    <p>© 2026 Coral Hotel - جميع الحقوق محفوظة</p>
+</footer>
 
 </body>
 </html>
