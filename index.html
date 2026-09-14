@@ -159,10 +159,35 @@
 </section>
 
 <section class="section" id="booking">
-    <h2>📅 احجز غرفتك</h2>
-    <p>اضغط على الزر للبدء في عملية الحجز.</p>
+    <h2>📅 احجز غرفتك الآن</h2>
 
-    <a class="button" href="#">ابدأ الحجز</a>
+    <form>
+        <label>الاسم الكامل:</label><br>
+        <input type="text" placeholder="اكتب اسمك" required><br><br>
+
+        <label>رقم الهاتف:</label><br>
+        <input type="tel" placeholder="رقم الهاتف" required><br><br>
+
+        <label>نوع الغرفة:</label><br>
+        <select required>
+            <option value="">اختر الغرفة</option>
+            <option>غرفة فردية</option>
+            <option>غرفة مزدوجة</option>
+            <option>جناح فاخر</option>
+        </select><br><br>
+
+        <label>تاريخ الدخول:</label><br>
+        <input type="date" required><br><br>
+
+        <label>تاريخ الخروج:</label><br>
+        <input type="date" required><br><br>
+
+        <label>عدد الأشخاص:</label><br>
+        <input type="number" min="1" max="10" value="1" required><br><br>
+
+        <button class="button" type="submit">تأكيد الحجز</button>
+    </form>
+</section>
 </section>
 
 <section class="section" id="contact">
