@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>فندق كورال - Coral Hotel</title>
 
-    <!-- تنسيقات CSS -->
+    <!-- تنسيقات CSS كاملاً -->
     <style>
         * {
             box-sizing: border-box;
@@ -14,10 +14,56 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             background-color: #f4f6f9;
             color: #333;
             line-height: 1.6;
+            padding-top: 70px;
+        }
+
+        /* شريط التنقل العلوي (الخيارات فوق) */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: #1a252f;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+
+        nav .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #f1c40f;
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #f1c40f;
         }
 
         /* رأس الصفحة واسم الفندق */
@@ -29,7 +75,7 @@
         }
 
         header h1 {
-            font-size: 40px;
+            font-size: 42px;
             color: #f1c40f;
             margin-bottom: 10px;
         }
@@ -176,15 +222,26 @@
 </head>
 <body>
 
-    <!-- 1. اسم الفندق والهيدر -->
-    <header>
+    <!-- شريط الخيارات العلوي -->
+    <nav>
+        <a href="#home" class="logo">فندق كورال</a>
+        <ul>
+            <li><a href="#home">الرئيسية</a></li>
+            <li><a href="#services">الخدمات</a></li>
+            <li><a href="#booking">حجز غرفة</a></li>
+            <li><a href="#footer">اتصل بنا</a></li>
+        </ul>
+    </nav>
+
+    <!-- الهيدر واسم الفندق -->
+    <header id="home">
         <h1>فندق كورال</h1>
         <p>استمتع بإقامة فاخرة وخدمات ذات 5 نجوم تجعل من رحلتك تجربة لا تُنسى في فندق كورال.</p>
     </header>
 
     <div class="container">
-        <!-- 2. قسم الخدمات المقدمة -->
-        <h2 class="section-title">الخدمات المقدمة</h2>
+        <!-- قسم الخدمات المقدمة -->
+        <h2 id="services" class="section-title">الخدمات المقدمة</h2>
         <div class="services-grid">
             <div class="service-card">
                 <h3>🏊‍♂️ حمام سباحة مغلق ومفتوح</h3>
@@ -204,8 +261,8 @@
             </div>
         </div>
 
-        <!-- 3. واجهة التسجيل والحجز -->
-        <h2 class="section-title">واجهة التسجيل والحجز</h2>
+        <!-- واجهة التسجيل والحجز -->
+        <h2 id="booking" class="section-title">واجهة التسجيل والحجز</h2>
         <div class="booking-section">
             <form id="bookingForm">
                 <div class="form-group">
@@ -251,7 +308,8 @@
         </div>
     </div>
 
-    <footer>
+    <!-- تذييل الصفحة -->
+    <footer id="footer">
         <p>جميع الحقوق محفوظة &copy; 2026 فندق كورال</p>
     </footer>
 
