@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بوابة النزيل | استعلام وتتبع حجوزات فندق كورال</title>
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/print.css">
+</head>
+<body style="background: #f1f5f9; min-height: 100vh; display: flex; flex-direction: column;">
+
+    <!-- Navigation Header -->
+    <header class="header" style="position: relative; background: #0a192f;">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon"><i class="fas fa-crown"></i></div>
+                    <div class="logo-text">
+                        <h1>فندق كورال</h1>
+                        <span>CORAL HOTELS SUDAN</span>
+                    </div>
+                </a>
+
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">الرئيسية</a></li>
+                    <li><a href="index.html#branches" class="nav-link">فروع الولايات</a></li>
+                    <li><a href="index.html#rooms" class="nav-link">الغرف والأجنحة</a></li>
+                    <li><a href="guest-portal.html" class="nav-link active">بوابة النزيل</a></li>
+                </ul>
+
+                <div class="nav-actions">
+                    <a href="index.html" class="btn btn-outline-gold btn-sm">
+                        <i class="fas fa-plus"></i> حجز جديد
+                    </a>
+                    <a href="admin.html" class="btn btn-gold btn-sm">
+                        <i class="fas fa-user-shield"></i> لوحة المدير
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main style="flex-grow: 1; padding: 50px 0;">
+        <div class="container" style="max-width: 850px;">
+            <div style="text-align: center; margin-bottom: 35px;">
+                <span class="section-badge"><i class="fas fa-search"></i> خدمة النزلاء الذكية</span>
+                <h2 style="font-size: 2.2rem; font-weight: 800; color: var(--primary); margin-bottom: 10px;">بوابة استعلام وتتبع الحجوزات</h2>
+                <p style="color: var(--text-muted); font-size: 1rem;">أدخل رقم الحجز المرجعي ورقم الهاتف المسجل لعرض تفاصيل إقامتك وسند الحجز المعتمد</p>
+            </div>
+
+            <!-- بطاقة إدخال البحث -->
+            <div style="background: #fff; padding: 32px; border-radius: var(--radius-lg); box-shadow: var(--shadow-md); border: 1px solid var(--border-color); margin-bottom: 30px;">
+                <form id="guestLookupForm">
+                    <div style="display: grid; grid-template-columns: 1.2fr 1fr auto; gap: 16px; align-items: end;">
+                        <div class="form-group">
+                            <label for="lookupRefInput"><i class="fas fa-barcode"></i> رقم الحجز المرجعي (Reference Code) *</label>
+                            <input type="text" id="lookupRefInput" class="form-control" placeholder="مثال: CR-892104" required style="font-weight: bold; letter-spacing: 1px;">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="lookupPhoneInput"><i class="fas fa-phone"></i> رقم هاتف النزيل</label>
+                            <input type="tel" id="lookupPhoneInput" class="form-control" placeholder="0912345678">
+                        </div>
+
+                        <div>
+                            <button type="submit" class="btn btn-gold" style="height: 52px; width: 100%;">
+                                <i class="fas fa-search"></i> استعلام فوري
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+                <div style="margin-top: 18px; font-size: 0.85rem; color: #64748b; display: flex; align-items: center; gap: 8px;">
+                    <i class="fas fa-info-circle" style="color: var(--gold-dark);"></i>
+                    <span>تلميح تجريبي: يمكنك تجربة أرقام الحجوزات الجاهزة: <strong>CR-892104</strong> (البحر الأحمر) أو <strong>CR-892105</strong> (كسلا) أو <strong>CR-892106</strong> (نهر النيل).</span>
+                </div>
+            </div>
+
+            <!-- مكان ظهور النتيجة -->
+            <div id="lookupResultBox" style="display: none;">
+                <!-- يتم تعبئته بواسطة JavaScript -->
+            </div>
+
+            <!-- إشعار قبل البحث -->
+            <div id="lookupEmptyNotice" style="text-align: center; padding: 40px 20px; background: rgba(255,255,255,0.7); border-radius: var(--radius-lg); border: 1px dashed #cbd5e1;">
+                <i class="fas fa-passport" style="font-size: 48px; color: #94a3b8; margin-bottom: 15px;"></i>
+                <h4 style="color: var(--primary); margin-bottom: 6px;">في انتظار إدخال رقم الحجز</h4>
+                <p style="color: #64748b; font-size: 0.95rem;">ستظهر هنا الفاتورة وسند الإقامة وتأكيد الدفع فور الاستعلام.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer style="background: var(--primary-dark); color: #94a3b8; padding: 25px 0; text-align: center; font-size: 0.88rem; border-top: 1px solid rgba(212,175,55,0.2);">
+        <div class="container">
+            فندق كورال السودان &copy; 2026 | فروع البحر الأحمر، كسلا، ونهر النيل | خدمة النزلاء 24/7
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/guest-portal.js"></script>
+</body>
+</html>
