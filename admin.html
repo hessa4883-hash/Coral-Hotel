@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>لوحة تحكم مدير النظام | فندق كورال السودان</title>
+    <title>لوحة تحكم مدير النظام السرية | فندق كورال السودان</title>
     <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,8 +14,49 @@
 </head>
 <body class="admin-body">
 
+    <!-- ========================================================
+         بوابة تسجيل الدخول السرية للمدير (Secret Admin Login Gate)
+         تظهر أولاً وتمنع الدخول حتى إدخال المعرف وكلمة المرور
+         ======================================================== -->
+    <div class="admin-login-overlay" id="adminLoginOverlay">
+        <div class="admin-login-card">
+            <div class="login-lock-icon">
+                <i class="fas fa-user-shield"></i>
+            </div>
+            <h2>بوابة إدارة فندق كورال السرية</h2>
+            <p>سجل الدخول بالمعرف المخصص وكلمة المرور للوصول إلى لوحة العمليات المركزية</p>
+
+            <form id="adminLoginForm">
+                <div class="login-field">
+                    <label for="adminIdInput"><i class="fas fa-id-card"></i> معرف المدير المخصص (Admin ID):</label>
+                    <input type="text" id="adminIdInput" class="login-input" placeholder="مثال: CORAL-ADMIN أو admin" required autofocus>
+                </div>
+
+                <div class="login-field">
+                    <label for="adminPassInput"><i class="fas fa-key"></i> كلمة المرور السرية (Password):</label>
+                    <input type="password" id="adminPassInput" class="login-input" placeholder="••••••••" required>
+                </div>
+
+                <div id="loginErrorMsg" style="display: none; color: #fca5a5; background: rgba(239, 68, 68, 0.2); border: 1px solid #ef4444; padding: 10px; border-radius: 8px; font-size: 0.88rem; margin-bottom: 14px;">
+                    <i class="fas fa-exclamation-triangle"></i> معرف المدير أو كلمة المرور غير صحيحة!
+                </div>
+
+                <button type="submit" class="login-submit-btn" id="btnLoginSubmit">
+                    <i class="fas fa-unlock-alt"></i> فتح لوحة المدير
+                </button>
+            </form>
+
+            <div class="login-hint">
+                <i class="fas fa-info-circle" style="color: var(--admin-gold);"></i>
+                <strong>بيانات الدخول المعتمدة للنظام:</strong><br>
+                معرف المدير: <strong style="color: #fff;">CORAL-ADMIN</strong> | كلمة المرور: <strong style="color: #fff;">coral2026</strong><br>
+                <small>(أو المعرف: admin | كلمة المرور: admin123)</small>
+            </div>
+        </div>
+    </div>
+
     <!-- القائمة الجانبية (Sidebar) -->
-    <aside class="admin-sidebar">
+    <aside class="admin-sidebar" id="adminSidebar" style="display: none;">
         <div class="admin-logo">
             <div class="admin-logo-icon">
                 <i class="fas fa-crown"></i>
@@ -41,15 +82,15 @@
             </a>
             <a href="#occupancySection" class="admin-nav-item">
                 <i class="fas fa-hotel"></i>
-                <span>فروع الولايات الثلاث</span>
+                <span>فروع السودان الأربعة</span>
             </a>
-            <a href="index.html" target="_blank" class="admin-nav-item" style="color: var(--gold);">
+            <a href="index.html" target="_blank" class="admin-nav-item" style="color: var(--admin-gold);">
                 <i class="fas fa-external-link-alt"></i>
                 <span>عرض شاشة النزيل</span>
             </a>
             <a href="api/setup_db.php" target="_blank" class="admin-nav-item">
                 <i class="fas fa-database"></i>
-                <span>إعداد داتابيس XAMPP</span>
+                <span>تهيئة داتابيس XAMPP</span>
             </a>
         </nav>
 
@@ -58,34 +99,37 @@
                 <div class="admin-avatar">
                     <i class="fas fa-user-shield"></i>
                 </div>
-                <div class="admin-user-info">
-                    <div class="name">المدير العام للنظام</div>
-                    <div class="role">فنادق كورال السودان</div>
+                <div class="admin-user-info" style="flex-grow: 1;">
+                    <div class="name" id="sidebarAdminName">المدير العام للنظام</div>
+                    <div class="role" id="sidebarAdminRole">فنادق كورال السودان</div>
                 </div>
+                <button class="action-btn" id="btnSidebarLogout" title="قفل الشاشة وتسجيل الخروج" style="color: #ef4444; border-color: rgba(239,68,68,0.4);">
+                    <i class="fas fa-sign-out-alt"></i>
+                </button>
             </div>
         </div>
     </aside>
 
     <!-- المحتوى الرئيسي للوحة الإدارة (Main Content) -->
-    <main class="admin-main">
+    <main class="admin-main" id="adminMainContent" style="display: none;">
         <!-- الشريط العلوي (Topbar) -->
         <header class="admin-topbar">
             <div class="topbar-title">
-                <h1>لوحة متابعة العمليات والحجوزات</h1>
-                <p>إدارة مركزية لفروع: البحر الأحمر، كسلا، ونهر النيل</p>
+                <h1>لوحة متابعة العمليات والحجوزات الفندقية</h1>
+                <p>إدارة مركزية لفروع: الخرطوم (المقر الرئيسي)، بورتسودان، كسلا، وعطبرة بنهر النيل</p>
             </div>
 
             <div class="topbar-actions">
                 <div class="system-status-pill" id="backendModeBadge">
                     <span class="status-dot"></span> متصل بالنظام
                 </div>
-                <button class="action-btn" id="btnRefreshData" title="تحديث فوري" style="width: auto; padding: 0 16px; height: 38px; gap: 8px;">
-                    <i class="fas fa-sync-alt"></i> تحديث فوري
+                <button class="action-btn" id="btnRefreshData" title="تحديث فوري">
+                    <i class="fas fa-sync-alt"></i> تحديث
                 </button>
-                <button class="action-btn" id="btnResetData" title="إعادة ضبط البيانات" style="width: auto; padding: 0 14px; height: 38px; color: #ef4444; border-color: rgba(239,68,68,0.4);">
-                    <i class="fas fa-undo"></i> إعادة تعيين
+                <button class="action-btn" id="btnAdminLogout" style="background: rgba(239,68,68,0.2); border-color: #ef4444; color: #fca5a5;">
+                    <i class="fas fa-lock"></i> قفل اللوحة
                 </button>
-                <a href="index.html" class="action-btn" title="بوابة النزيل" style="width: auto; padding: 0 16px; height: 38px; background: var(--gold); color: #0b1329; font-weight: bold; border-color: var(--gold);">
+                <a href="index.html" target="_blank" class="action-btn" style="background: var(--admin-purple-bright); color: #fff; font-weight: bold;">
                     <i class="fas fa-eye"></i> شاشة النزيل
                 </a>
             </div>
@@ -98,11 +142,11 @@
                 <div class="stat-card">
                     <div class="stat-header">
                         <span class="stat-title">إجمالي الحجوزات المسجلة</span>
-                        <div class="stat-icon gold"><i class="fas fa-bookmark"></i></div>
+                        <div class="stat-icon purple"><i class="fas fa-bookmark"></i></div>
                     </div>
                     <div class="stat-value" id="statTotalBookings">0</div>
                     <div class="stat-footer">
-                        <span class="badge"><i class="fas fa-arrow-up"></i> 14%</span> نمو شهري في الحجوزات
+                        <span style="color: #10b981; font-weight: bold;"><i class="fas fa-arrow-up"></i> +18%</span> في جميع الفروع
                     </div>
                 </div>
 
@@ -113,43 +157,43 @@
                     </div>
                     <div class="stat-value" id="statTotalRevenue">0 ج.س</div>
                     <div class="stat-footer">
-                        <span class="badge"><i class="fas fa-check-circle"></i> بنكك وفيزا</span> تم التحصيل بنجاح
+                        <span style="color: var(--admin-gold);"><i class="fas fa-coins"></i> بنكك | فيزا | دولار | ريال</span>
                     </div>
                 </div>
 
                 <div class="stat-card">
                     <div class="stat-header">
-                        <span class="stat-title">النزلاء المقيمون والمؤكدون</span>
+                        <span class="stat-title">النزلاء الحاليون والمؤكدون</span>
                         <div class="stat-icon blue"><i class="fas fa-users"></i></div>
                     </div>
                     <div class="stat-value" id="statActiveGuests">0</div>
                     <div class="stat-footer">
-                        <span style="color: var(--admin-muted);">في جميع أفرع الولايات</span>
+                        <span>إقامة محلية وأجنبية</span>
                     </div>
                 </div>
 
                 <div class="stat-card">
                     <div class="stat-header">
                         <span class="stat-title">معدل الإشغال العام</span>
-                        <div class="stat-icon purple"><i class="fas fa-chart-pie"></i></div>
+                        <div class="stat-icon gold"><i class="fas fa-chart-pie"></i></div>
                     </div>
                     <div class="stat-value" id="statOccupancyRate">0%</div>
                     <div class="stat-footer">
-                        <span class="badge" style="color: #c084fc;">إقبال مرتفع</span> عطلات نهاية الأسبوع
+                        <span style="color: var(--admin-purple-bright); font-weight: bold;">إقبال مرتفع</span> على المقر الرئيسي
                     </div>
                 </div>
             </section>
 
-            <!-- 2. قسمين: سجل النشاطات الحية + نسب إشغال الفروع -->
+            <!-- 2. قسمين: سجل النشاطات الحية + نسب إشغال الفروع الأربعة -->
             <div class="dashboard-grid">
                 <!-- سجل النشاطات الإدارية الحية -->
                 <div class="panel-card" id="activitiesSection">
                     <div class="panel-header">
                         <div class="panel-title">
                             <i class="fas fa-bolt"></i>
-                            <span>سجل النشاطات الحية (Real-time Activity Feed)</span>
+                            <span>سجل النشاطات الحية (Real-time Activities Feed)</span>
                         </div>
-                        <span style="font-size: 0.8rem; color: var(--gold);"><i class="fas fa-circle" style="font-size: 8px;"></i> تحديث تلقائي</span>
+                        <span style="font-size: 0.8rem; color: var(--admin-gold);"><i class="fas fa-circle" style="font-size: 8px;"></i> تحديث فوري</span>
                     </div>
                     <div class="panel-body">
                         <div class="activity-stream" id="activityStreamList">
@@ -158,12 +202,12 @@
                     </div>
                 </div>
 
-                <!-- إشغال فروع الولايات (البحر الأحمر، كسلا، نهر النيل) -->
+                <!-- إشغال فروع السودان الأربعة -->
                 <div class="panel-card" id="occupancySection">
                     <div class="panel-header">
                         <div class="panel-title">
                             <i class="fas fa-map-marked-alt"></i>
-                            <span>إشغال فروع الولايات</span>
+                            <span>إشغال فروع السودان الأربعة</span>
                         </div>
                     </div>
                     <div class="panel-body">
@@ -171,19 +215,19 @@
                             <!-- يتم العرض بواسطة JavaScript -->
                         </div>
 
-                        <div style="margin-top: 24px; padding: 16px; background: rgba(212, 175, 55, 0.08); border-radius: 12px; border: 1px solid rgba(212, 175, 55, 0.2);">
-                            <div style="font-size: 0.88rem; color: var(--gold); font-weight: bold; margin-bottom: 6px;">
-                                <i class="fas fa-lightbulb"></i> تنبيه الذكاء الفندقي:
+                        <div style="margin-top: 24px; padding: 16px; background: rgba(168, 85, 247, 0.12); border-radius: 12px; border: 1px solid var(--admin-border-light);">
+                            <div style="font-size: 0.88rem; color: var(--admin-purple-bright); font-weight: bold; margin-bottom: 6px;">
+                                <i class="fas fa-bell"></i> تقرير العمليات المركزية:
                             </div>
-                            <p style="font-size: 0.82rem; color: #cbd5e1; line-height: 1.6;">
-                                فرع البحر الأحمر يشهد طلباً عالياً على جناح المرجان الملكي لعطلة نهاية الأسبوع، يُقترح فتح خيارات حجز إضافية.
+                            <p style="font-size: 0.82rem; color: #f5f3ff; line-height: 1.6;">
+                                يشهد المقر الرئيسي بالخرطوم وفرع بورتسودان أعلى نسبة إشغال. فرع عطبرة بنهر النيل يسجل إقبالاً ملحوظاً من الضيوف الأجانب والباحثين.
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- 3. جدول إدارة الحجوزات الكامل -->
+            <!-- 3. جدول إدارة الحجوزات الشامل -->
             <section class="panel-card" id="bookingsSection">
                 <div class="panel-header">
                     <div class="panel-title">
@@ -195,20 +239,21 @@
                 <div class="panel-body">
                     <!-- شريط البحث والتصفية -->
                     <div class="filter-bar">
-                        <input type="text" id="adminSearchInput" class="filter-input" placeholder="🔍 بحث برقم الحجز أو اسم النزيل..." style="flex: 1.5; min-width: 220px;">
+                        <input type="text" id="adminSearchInput" class="filter-input" placeholder="🔍 بحث برقم الحجز أو اسم النزيل أو الهاتف..." style="flex: 1.5; min-width: 220px;">
                         
                         <select id="adminBranchFilter" class="filter-select" style="flex: 1; min-width: 180px;">
-                            <option value="all">كافة الفروع (البحر الأحمر، كسلا، نهر النيل)</option>
-                            <option value="1">فندق كورال البحر الأحمر (بورتسودان)</option>
-                            <option value="2">فندق كورال كسلا (عروس الشرق)</option>
-                            <option value="3">فندق كورال نهر النيل (عطبرة والدامر)</option>
+                            <option value="all">كافة الفروع (الخرطوم، بورتسودان، كسلا، عطبرة)</option>
+                            <option value="1">فندق كورال الخرطوم (المقر الرئيسي)</option>
+                            <option value="2">فندق كورال بورتسودان (البحر الأحمر)</option>
+                            <option value="3">فندق كورال كسلا (عروس الشرق)</option>
+                            <option value="4">فندق كورال عطبرة (ولاية نهر النيل)</option>
                         </select>
 
                         <select id="adminStatusFilter" class="filter-select" style="min-width: 140px;">
                             <option value="all">كافة الحالات</option>
                             <option value="confirmed">مؤكد</option>
-                            <option value="checked_in">تم تسجيل الوصول</option>
-                            <option value="checked_out">غادر (مكتمل)</option>
+                            <option value="checked_in">تم تسجيل الوصول (Check-in)</option>
+                            <option value="checked_out">غادر (Check-out)</option>
                             <option value="cancelled">ملغي</option>
                         </select>
                     </div>
@@ -219,13 +264,13 @@
                             <thead>
                                 <tr>
                                     <th>رقم الحجز</th>
-                                    <th>اسم النزيل والهاتف</th>
-                                    <th>الفرع والولاية</th>
+                                    <th>النزيل والجنسية</th>
+                                    <th>الفرع</th>
                                     <th>الغرفة / الجناح</th>
                                     <th>فترة الإقامة</th>
-                                    <th>المبلغ المدفوع</th>
-                                    <th>حالة الحجز</th>
-                                    <th>الإجراءات</th>
+                                    <th>المبلغ والعملة</th>
+                                    <th>الحالة</th>
+                                    <th>الإجراءات والبريد</th>
                                 </tr>
                             </thead>
                             <tbody id="bookingsTableBody">
@@ -238,18 +283,15 @@
         </div>
     </main>
 
-    <!-- نافذة عرض تفاصيل الحجز للمدير -->
-    <div class="modal-overlay" id="adminBookingModal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.8); z-index: 2000; align-items: center; justify-content: center;">
-        <div style="background: var(--admin-card); border: 1px solid var(--gold); border-radius: 16px; width: 90%; max-width: 650px; padding: 28px; position: relative; color: #fff;">
+    <!-- نافذة عرض تفاصيل الحجز للمدير مع معاينة رسالة البريد -->
+    <div class="modal-overlay" id="adminBookingModal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.85); z-index: 3000; align-items: center; justify-content: center; padding: 20px;">
+        <div style="background: var(--admin-card); border: 2px solid var(--admin-purple-bright); border-radius: 20px; width: 100%; max-width: 720px; max-height: 90vh; overflow-y: auto; padding: 30px; position: relative; color: #fff;">
             <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--admin-border); padding-bottom: 16px; margin-bottom: 20px;">
-                <h3 style="color: var(--gold);"><i class="fas fa-file-invoice"></i> تفاصيل الحجز الفندقي</h3>
-                <button id="closeAdminModalBtn" style="background: none; border: none; color: #fff; font-size: 24px; cursor: pointer;">&times;</button>
+                <h3 style="color: var(--admin-purple-bright);"><i class="fas fa-file-invoice"></i> ملف الحجز الكامل ورسالة البريد</h3>
+                <button id="closeAdminModalBtn" style="background: none; border: none; color: #fff; font-size: 26px; cursor: pointer;">&times;</button>
             </div>
             <div id="adminBookingDetailContent">
                 <!-- تفاصيل الحجز -->
-            </div>
-            <div style="text-align: left; margin-top: 20px;">
-                <button class="btn btn-gold btn-sm" onclick="window.print()"><i class="fas fa-print"></i> طباعة</button>
             </div>
         </div>
     </div>

@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>فندق كورال السودان | فخامة الضيافة في البحر الأحمر، كسلا، ونهر النيل</title>
-    <meta name="description" content="الموقع الرسمي لحجوزات فنادق كورال في السودان. احجز غرفتك في فروعنا بولاية البحر الأحمر (بورتسودان)، ولاية كسلا، وولاية نهر النيل. دفع آمن وتأكيد فوري.">
-    <!-- Fonts & Icons -->
+    <title>فندق كورال السودان | المقر الرئيسي بالخرطوم، بورتسودان، كسلا، وعطبرة</title>
+    <meta name="description" content="الموقع الرسمي لحجوزات فنادق كورال في السودان. المقر الرئيسي في الخرطوم، وفروع بورتسودان، كسلا، وعطبرة بنهر النيل. خيارات إقامة محلية وأجنبية ودفع بالجنيه أو الدولار أو الريال.">
+    <!-- Fonts & FontAwesome -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
@@ -16,7 +16,7 @@
 </head>
 <body>
 
-    <!-- Header & Navigation -->
+    <!-- Header & Navigation Bar -->
     <header class="header">
         <div class="container">
             <nav class="navbar">
@@ -25,29 +25,43 @@
                         <i class="fas fa-crown"></i>
                     </div>
                     <div class="logo-text">
-                        <h1>فندق كورال</h1>
-                        <span>CORAL HOTELS SUDAN</span>
+                        <h1 id="brandTitle">فندق كورال السودان</h1>
+                        <span id="brandSub">CORAL HOTELS SUDAN</span>
                     </div>
                 </a>
 
                 <ul class="nav-links">
-                    <li><a href="#hero" class="nav-link active">الرئيسية</a></li>
-                    <li><a href="#offers" class="nav-link">العروض الترويجية</a></li>
-                    <li><a href="#branches" class="nav-link">فروع الولايات</a></li>
-                    <li><a href="#rooms" class="nav-link">الغرف والأجنحة</a></li>
-                    <li><a href="guest-portal.html" class="nav-link">تتبع حجزي</a></li>
+                    <li><a href="#hero" class="nav-link active" data-i18n="nav_home">الرئيسية</a></li>
+                    <li><a href="#offers" class="nav-link" data-i18n="nav_offers">العروض الحصرية</a></li>
+                    <li><a href="#branches" class="nav-link" data-i18n="nav_branches">فروع الولايات</a></li>
+                    <li><a href="#rooms" class="nav-link" data-i18n="nav_rooms">الغرف والأجنحة</a></li>
+                    <li><a href="guest-portal.html" class="nav-link" data-i18n="nav_mybooking">تتبع حجزي</a></li>
                 </ul>
 
                 <div class="nav-actions">
-                    <a href="guest-portal.html" class="btn btn-outline-gold btn-sm">
-                        <i class="fas fa-search"></i> الاستعلام عن حجز
+                    <!-- محول العملات (SDG, USD, SAR) -->
+                    <div class="lang-cur-box" title="اختر عملة الحجز">
+                        <i class="fas fa-coins" style="color: var(--accent-gold); font-size: 13px;"></i>
+                        <select id="currencySelector" class="lang-cur-select">
+                            <option value="SDG">🇸🇩 ج.س (SDG)</option>
+                            <option value="USD">🇺🇸 $ (USD)</option>
+                            <option value="SAR">🇸🇦 ر.س (SAR)</option>
+                        </select>
+                    </div>
+
+                    <!-- محول اللغات (عربي / English) -->
+                    <div class="lang-cur-box" title="تغيير لغة الموقع">
+                        <i class="fas fa-globe" style="color: var(--p-200); font-size: 13px;"></i>
+                        <select id="langSelector" class="lang-cur-select">
+                            <option value="ar">العربية (AR)</option>
+                            <option value="en">English (EN)</option>
+                        </select>
+                    </div>
+
+                    <!-- رابط لوحة الإدارة السرية -->
+                    <a href="admin.html" class="btn btn-gold btn-sm" title="لوحة تحكم مدير النظام السرية">
+                        <i class="fas fa-user-shield"></i> <span data-i18n="nav_admin">لوحة المدير</span>
                     </a>
-                    <a href="admin.html" class="btn btn-gold btn-sm">
-                        <i class="fas fa-user-shield"></i> لوحة المدير
-                    </a>
-                    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="القائمة">
-                        <i class="fas fa-bars"></i>
-                    </button>
                 </div>
             </nav>
         </div>
@@ -57,16 +71,19 @@
     <section class="hero" id="hero">
         <div class="hero-content">
             <div class="hero-pill">
-                <i class="fas fa-gem"></i> أرقى درجات الضيافة الفندقية في السودان
+                <i class="fas fa-crown"></i> <span data-i18n="hero_pill">أرقى درجات الضيافة الفندقية في السودان</span>
             </div>
             <h1 class="hero-title">
-                عش رفاهية الإقامة في <span class="highlight">فندق كورال</span>
+                <span data-i18n="hero_welcome">فخامة الإقامة في</span> <span class="highlight">فندق كورال السودان</span>
             </h1>
-            <p class="hero-subtitle">
-                مرحباً بك في سلسلة فنادق كورال الرائدة، حيث تلتقي فخامة الخدمات العالمية مع كرم الضيافة السودانية الأصيلة في أرقى وجهات السودان الساحرة.
+            <p class="hero-subtitle" data-i18n="hero_sub">
+                المقر الرئيسي بالخرطوم على شارع النيل، وفروعنا الساحرة في بورتسودان (البحر الأحمر)، كسلا (جبال التوتيل)، وعطبرة (ولاية نهر النيل). نرحب بالضيوف السودانيين والأجانب بخيارات دفع متعددة.
             </p>
 
             <div class="hero-locations">
+                <div class="location-tag">
+                    <i class="fas fa-star"></i> <strong data-i18n="loc_khartoum">المقر الرئيسي: الخرطوم</strong> (شارع النيل)
+                </div>
                 <div class="location-tag">
                     <i class="fas fa-water"></i> <span>ولاية البحر الأحمر</span> (بورتسودان)
                 </div>
@@ -74,16 +91,16 @@
                     <i class="fas fa-mountain"></i> <span>ولاية كسلا</span> (جبال التوتيل)
                 </div>
                 <div class="location-tag">
-                    <i class="fas fa-compass"></i> <span>ولاية نهر النيل</span> (عطبرة والدامر)
+                    <i class="fas fa-compass"></i> <span>ولاية نهر النيل</span> (عطبرة فقط)
                 </div>
             </div>
 
             <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
-                <a href="#rooms" class="btn btn-gold">
-                    <i class="fas fa-calendar-alt"></i> استكشف الغرف واحجز الآن
-                </a>
-                <a href="#offers" class="btn btn-outline-white">
-                    <i class="fas fa-tags"></i> مشاهدة عروض الموسم
+                <button class="btn btn-purple" onclick="window.openSeparateBooking()">
+                    <i class="fas fa-calendar-check"></i> <span data-i18n="btn_book_now">احجز الآن إقامة فاخرة</span>
+                </button>
+                <a href="#offers" class="btn btn-outline-purple">
+                    <i class="fas fa-tags"></i> <span data-i18n="btn_view_offers">استعراض عروض الموسم</span>
                 </a>
             </div>
         </div>
@@ -94,37 +111,37 @@
         <div class="booking-search-card">
             <form class="search-form" id="searchForm">
                 <div class="form-group">
-                    <label for="searchBranch"><i class="fas fa-hotel"></i> اختر الفرع / الولاية</label>
+                    <label for="searchBranch"><i class="fas fa-hotel"></i> <span data-i18n="search_branch_lbl">اختر الفرع / الولاية</span></label>
                     <select id="searchBranch" class="form-control">
-                        <option value="all">جميع فروع كورال (البحر الأحمر، كسلا، نهر النيل)</option>
+                        <option value="all">كافة الفروع (الخرطوم، بورتسودان، كسلا، عطبرة)</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label for="searchCheckIn"><i class="fas fa-calendar-check"></i> تاريخ الوصول</label>
+                    <label for="searchCheckIn"><i class="fas fa-calendar-alt"></i> <span data-i18n="search_checkin_lbl">تاريخ الوصول</span></label>
                     <input type="date" id="searchCheckIn" class="form-control" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="searchCheckOut"><i class="fas fa-calendar-times"></i> تاريخ المغادرة</label>
+                    <label for="searchCheckOut"><i class="fas fa-calendar-check"></i> <span data-i18n="search_checkout_lbl">تاريخ المغادرة</span></label>
                     <input type="date" id="searchCheckOut" class="form-control" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="searchRoomType"><i class="fas fa-bed"></i> نوع الإقامة</label>
+                    <label for="searchRoomType"><i class="fas fa-bed"></i> <span data-i18n="search_type_lbl">نوع الإقامة</span></label>
                     <select id="searchRoomType" class="form-control">
                         <option value="all">كافة أنواع الغرف</option>
-                        <option value="suite">أجنحة ملكية ورئاسية</option>
+                        <option value="suite">أجنحة رئاسية ودبلوماسية</option>
                         <option value="deluxe">غرف ديلوكس فاخرة</option>
                         <option value="villa">فلل خاصة (كسلا)</option>
-                        <option value="chalet">شاليهات نيلية (نهر النيل)</option>
-                        <option value="family">أجنحة عائلية</option>
+                        <option value="chalet">شاليهات نيلية (عطبرة)</option>
+                        <option value="executive">غرف تنفيذية لرجال الأعمال</option>
                     </select>
                 </div>
 
                 <div>
-                    <button type="submit" class="btn btn-gold" style="height: 52px; width: 100%;">
-                        <i class="fas fa-search"></i> بحث وتحديث
+                    <button type="submit" class="btn btn-purple" style="height: 52px; width: 100%;">
+                        <i class="fas fa-search"></i> <span data-i18n="btn_search">بحث وتحديث</span>
                     </button>
                 </div>
             </form>
@@ -135,9 +152,9 @@
     <section class="offers-section" id="offers">
         <div class="container">
             <div class="section-title">
-                <span class="section-badge"><i class="fas fa-percent"></i> خصومات وعروض حصرية</span>
-                <h2>عروض فندق كورال المميزة</h2>
-                <p>باقات إقامة متكاملة صُممت لتمنحك أقصى درجات الاستجمام والرفاهية بأفضل الأسعار وبخصومات تصل إلى 33%</p>
+                <span class="section-badge"><i class="fas fa-percent"></i> <span data-i18n="offers_badge">عروض وخصومات حصرية</span></span>
+                <h2 data-i18n="offers_title">باقات فندق كورال المميزة</h2>
+                <p data-i18n="offers_sub">خصومات خاصة تصل إلى 33% في المقر الرئيسي بالخرطوم، بورتسودان، كسلا، وعطبرة بنهر النيل</p>
             </div>
 
             <div class="offers-grid" id="offersGrid">
@@ -150,9 +167,9 @@
     <section class="branches-section" id="branches">
         <div class="container">
             <div class="section-title">
-                <span class="section-badge"><i class="fas fa-map-marked-alt"></i> انتشارنا في الولايات</span>
-                <h2>فروع فندق كورال في السودان</h2>
-                <p>وجهات استثنائية تجمع بين إطلالات البحر الأحمر البديعة، شموخ جبال التوتيل في كسلا، وهدوء ضفاف نهر النيل الخالد</p>
+                <span class="section-badge"><i class="fas fa-map-marked-alt"></i> <span data-i18n="branches_badge">فروعنا في السودان</span></span>
+                <h2 data-i18n="branches_title">انتشارنا الاستراتيجي في الولايات</h2>
+                <p data-i18n="branches_sub">المقر الرئيسي بالخرطوم، فرع البحر الأحمر ببورتسودان، فرع كسلا بجبال التوتيل، وفرع ولاية نهر النيل في مدينة عطبرة فقط</p>
             </div>
 
             <div class="branches-grid" id="branchesGrid">
@@ -161,71 +178,26 @@
         </div>
     </section>
 
-    <!-- Rooms & Suites Showcase Section -->
+    <!-- Rooms & Suites Section -->
     <section class="rooms-section" id="rooms">
         <div class="container">
             <div class="section-title">
-                <span class="section-badge"><i class="fas fa-key"></i> إقامة خمس نجوم</span>
-                <h2>الغرف والأجنحة الفاخرة</h2>
-                <p>اختر غرفتك المثالية المجهزة بأرقى المفروشات العالمية، الشاشات الذكية، الإطلالات الخلابة، وخدمات الضيافة على مدار الساعة</p>
+                <span class="section-badge"><i class="fas fa-key"></i> <span data-i18n="rooms_badge">إقامة 5 نجوم فاخرة</span></span>
+                <h2 data-i18n="rooms_title">الغرف والأجنحة الفندقية</h2>
+                <p data-i18n="rooms_sub">أجنحة رئاسية مطلة على النيل والبحر، فلل جبل التوتيل، شاليهات عطبرة، وغرف تنفيذية مجهزة بأعلى المقاييس</p>
             </div>
 
             <div class="room-filters">
                 <button class="filter-btn active" data-type="all">جميع الغرف والأجنحة</button>
-                <button class="filter-btn" data-type="suite">الأجنحة الملكية</button>
+                <button class="filter-btn" data-type="suite">الأجنحة الملكية والرئاسية</button>
                 <button class="filter-btn" data-type="deluxe">غرف ديلوكس</button>
-                <button class="filter-btn" data-type="villa">فلل جبل التوتيل (كسلا)</button>
-                <button class="filter-btn" data-type="chalet">شاليهات النيل (نهر النيل)</button>
-                <button class="filter-btn" data-type="family">غرف عائلية</button>
+                <button class="filter-btn" data-type="villa">فلل التوتيل (كسلا)</button>
+                <button class="filter-btn" data-type="chalet">شاليهات النيل (عطبرة)</button>
+                <button class="filter-btn" data-type="executive">رجال الأعمال التنفيذية</button>
             </div>
 
             <div class="rooms-grid" id="roomsGrid">
                 <!-- يتم التحميل ديناميكياً بواسطة JavaScript -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Features & Services Section -->
-    <section style="padding: 80px 0; background: #0a192f; color: #fff;">
-        <div class="container">
-            <div class="section-title">
-                <span class="section-badge" style="background: rgba(212,175,55,0.2); color: var(--gold);"><i class="fas fa-star"></i> لماذا فندق كورال؟</span>
-                <h2 style="color: #fff;">خدمات فندقية متكاملة تفوق التوقعات</h2>
-                <p style="color: #94a3b8;">نحرص في جميع فروعنا على تقديم أرقى معايير الراحة والأمان لجميع ضيوفنا الكرام</p>
-            </div>
-
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px;">
-                <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(212,175,55,0.2); padding: 30px; border-radius: 16px; text-align: center;">
-                    <div style="width: 60px; height: 60px; background: rgba(212,175,55,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; color: var(--gold); font-size: 24px;">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3 style="font-size: 1.2rem; margin-bottom: 10px; color: #fff;">دفع آمن وتأكيد فوري</h3>
-                    <p style="color: #94a3b8; font-size: 0.9rem;">إمكانية الدفع المباشر عبر تطبيق بنكك والبطاقات المصرفية مع استلام فوري لرسالة وسند الحجز.</p>
-                </div>
-
-                <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(212,175,55,0.2); padding: 30px; border-radius: 16px; text-align: center;">
-                    <div style="width: 60px; height: 60px; background: rgba(212,175,55,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; color: var(--gold); font-size: 24px;">
-                        <i class="fas fa-utensils"></i>
-                    </div>
-                    <h3 style="font-size: 1.2rem; margin-bottom: 10px; color: #fff;">مطاعم ومأكولات فاخرة</h3>
-                    <p style="color: #94a3b8; font-size: 0.9rem;">أشهى المأكولات البحرية في بورتسودان، قهوة التوتيل والوجبات الشرقية في كسلا، وإفطار نيلى ساحر.</p>
-                </div>
-
-                <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(212,175,55,0.2); padding: 30px; border-radius: 16px; text-align: center;">
-                    <div style="width: 60px; height: 60px; background: rgba(212,175,55,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; color: var(--gold); font-size: 24px;">
-                        <i class="fas fa-car"></i>
-                    </div>
-                    <h3 style="font-size: 1.2rem; margin-bottom: 10px; color: #fff;">خدمة الاستقبال والتوصيل</h3>
-                    <p style="color: #94a3b8; font-size: 0.9rem;">سيارات VIP خاصة لاستقبال النزلاء من مطارات بورتسودان وكسلا ومحطة قطار عطبرة.</p>
-                </div>
-
-                <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(212,175,55,0.2); padding: 30px; border-radius: 16px; text-align: center;">
-                    <div style="width: 60px; height: 60px; background: rgba(212,175,55,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; color: var(--gold); font-size: 24px;">
-                        <i class="fas fa-concierge-bell"></i>
-                    </div>
-                    <h3 style="font-size: 1.2rem; margin-bottom: 10px; color: #fff;">خدمة الغرف على مدار 24/7</h3>
-                    <p style="color: #94a3b8; font-size: 0.9rem;">طاقم ضيافة احترافي متأهب لتلبية جميع طلباتكم واحتياجاتكم في أي وقت لضمان راحتكم التامة.</p>
-                </div>
             </div>
         </div>
     </section>
@@ -243,22 +215,17 @@
                         </div>
                     </div>
                     <p style="font-size: 0.92rem; line-height: 1.7; margin-bottom: 20px;">
-                        سلسلة فنادق كورال الرائدة في السودان تقدم أرقى تجارب الإقامة والضيافة في ولايات البحر الأحمر، كسلا، ونهر النيل، بمستويات عالمية من الفخامة والخدمة.
+                        سلسلة فنادق كورال الرائدة في السودان تقدم أرقى مستويات الضيافة العالمية في الخرطوم (المقر الرئيسي)، البحر الأحمر (بورتسودان)، كسلا، ونهر النيل (عطبرة).
                     </p>
-                    <div style="display: flex; gap: 12px;">
-                        <a href="#" style="width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: var(--gold);"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" style="width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: var(--gold);"><i class="fab fa-twitter"></i></a>
-                        <a href="#" style="width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: var(--gold);"><i class="fab fa-instagram"></i></a>
-                        <a href="#" style="width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: var(--gold);"><i class="fab fa-whatsapp"></i></a>
-                    </div>
                 </div>
 
                 <div class="footer-col">
-                    <h4>فروعنا في الولايات</h4>
+                    <h4>فروعنا في السودان</h4>
                     <ul class="footer-links">
+                        <li><a href="#branches">📍 المقر الرئيسي: الخرطوم (شارع النيل)</a></li>
                         <li><a href="#branches">📍 فرع البحر الأحمر (بورتسودان)</a></li>
                         <li><a href="#branches">📍 فرع كسلا (جبال التوتيل)</a></li>
-                        <li><a href="#branches">📍 فرع نهر النيل (عطبرة والدامر)</a></li>
+                        <li><a href="#branches">📍 فرع ولاية نهر النيل (عطبرة فقط)</a></li>
                     </ul>
                 </div>
 
@@ -267,268 +234,313 @@
                     <ul class="footer-links">
                         <li><a href="#hero">الرئيسية</a></li>
                         <li><a href="#offers">العروض والخصومات</a></li>
-                        <li><a href="#rooms">حجز الغرف</a></li>
+                        <li><a href="#rooms">الغرف والأجنحة</a></li>
                         <li><a href="guest-portal.html">تتبع حجزي</a></li>
-                        <li><a href="admin.html">لوحة تحكم المدير</a></li>
-                        <li><a href="api/setup_db.php" target="_blank">تهيئة داتابيس XAMPP</a></li>
+                        <li><a href="admin.html">لوحة المدير السرية</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-col">
                     <h4>الاتصال والحجوزات</h4>
-                    <p style="font-size: 0.9rem; margin-bottom: 10px;"><i class="fas fa-phone-alt" style="color: var(--gold); margin-left: 8px;"></i> الخط الساخن: <strong>+249 123 456 780</strong></p>
-                    <p style="font-size: 0.9rem; margin-bottom: 10px;"><i class="fas fa-envelope" style="color: var(--gold); margin-left: 8px;"></i> reservations@coralhotels-sd.com</p>
-                    <p style="font-size: 0.9rem; margin-bottom: 16px;"><i class="fas fa-credit-card" style="color: var(--gold); margin-left: 8px;"></i> الدفع متاح عبر: بنكك | فيزا | ماستركارد</p>
+                    <p style="font-size: 0.9rem; margin-bottom: 10px;"><i class="fas fa-phone-alt" style="color: var(--accent-gold); margin-left: 8px;"></i> المقر الرئيسي: <strong>+249 183 774 100</strong></p>
+                    <p style="font-size: 0.9rem; margin-bottom: 10px;"><i class="fas fa-envelope" style="color: var(--accent-gold); margin-left: 8px;"></i> reservations@coralhotels-sd.com</p>
+                    <p style="font-size: 0.9rem; margin-bottom: 16px;"><i class="fas fa-money-bill-wave" style="color: var(--accent-gold); margin-left: 8px;"></i> العملات المقبولة: <strong>جنيه سوداني | دولار | ريال</strong></p>
                 </div>
             </div>
 
             <div class="footer-bottom">
-                جميع الحقوق محفوظة &copy; 2026 - فندق كورال السودان (Coral Hotels Sudan) | البحر الأحمر - كسلا - نهر النيل
+                جميع الحقوق محفوظة &copy; 2026 - فندق كورال السودان (Coral Hotels Sudan) | الخرطوم - بورتسودان - كسلا - عطبرة
             </div>
         </div>
     </footer>
 
     <!-- ========================================================
-         نافذة الحجز التفاعلية والدفع الفوري وتأكيد الحجز
+         شاشة التسجيل والحجز المنفصلة التفاعلية (Separate Booking Screen)
          ======================================================== -->
     <div class="modal-overlay" id="bookingModal">
         <div class="modal-container">
             <div class="modal-header">
-                <h3><i class="fas fa-concierge-bell" style="color: var(--gold);"></i> حجز إقامة فاخرة - فندق كورال</h3>
+                <h3><i class="fas fa-concierge-bell" style="color: var(--accent-gold);"></i> <span id="modalHeaderTitle">تسجيل وحجز إقامة فندقية - كورال السودان</span></h3>
                 <button class="modal-close-btn" id="closeModalBtn">&times;</button>
             </div>
 
-            <!-- مؤشر خطوات الحجز -->
+            <!-- Stepper -->
             <div class="stepper">
                 <div class="step-item active" data-step="1">
                     <div class="step-circle">1</div>
-                    <span>بيانات النزيل</span>
+                    <span data-i18n="step_1">معلومات النزيل والإقامة</span>
                 </div>
                 <div class="step-item" data-step="2">
                     <div class="step-circle">2</div>
-                    <span>الدفع الإلكتروني</span>
+                    <span data-i18n="step_2">الدفع والخيارات</span>
                 </div>
                 <div class="step-item" data-step="3">
                     <div class="step-circle">3</div>
-                    <span>التأكيد والسند</span>
+                    <span data-i18n="step_3">التأكيد ورسالة البريد</span>
                 </div>
             </div>
 
             <div class="modal-body">
-                <!-- بطاقة ملخص الغرفة المختارة -->
-                <div class="booking-room-summary">
-                    <img id="summaryRoomImg" src="" alt="غرفة">
-                    <div class="booking-room-info" style="flex-grow: 1;">
-                        <h4 id="summaryRoomTitle">جناح المرجان الملكي</h4>
-                        <p id="summaryBranchName">📍 فندق كورال بورتسودان (البحر الأحمر)</p>
-                        <div style="display: flex; gap: 16px; margin-top: 6px; font-size: 0.88rem;">
-                            <span style="color: var(--gold-dark); font-weight: 700;" id="summaryRoomPrice">185,000 ج.س / ليلة</span>
-                            <span style="color: var(--text-muted);" id="summaryNights">1 ليلة</span>
-                            <span style="color: var(--primary); font-weight: 800;">الإجمالي: <span id="summaryTotalPrice">185,000 ج.س</span></span>
+                <!-- بطاقة ملخص الغرفة -->
+                <div style="display: flex; gap: 16px; background: var(--p-50); border: 1px solid var(--p-200); border-radius: 14px; padding: 16px; margin-bottom: 22px;">
+                    <img id="summaryRoomImg" src="" alt="غرفة" style="width: 110px; height: 85px; object-fit: cover; border-radius: 8px;">
+                    <div style="flex-grow: 1;">
+                        <h4 id="summaryRoomTitle" style="color: var(--p-950); font-size: 1.15rem; font-weight: 800;">الجناح الرئاسي</h4>
+                        <p id="summaryBranchName" style="color: var(--p-700); font-size: 0.88rem; font-weight: 700;">📍 فندق كورال الخرطوم (المقر الرئيسي)</p>
+                        <div style="display: flex; gap: 14px; margin-top: 6px; font-size: 0.88rem;">
+                            <span style="color: var(--p-800); font-weight: 800;" id="summaryRoomPrice">0</span>
+                            <span style="color: var(--text-secondary);" id="summaryNights">1 ليلة</span>
+                            <span style="color: var(--p-950); font-weight: 900;">الإجمالي: <span id="summaryTotalPrice" style="color: #059669;">0</span></span>
                         </div>
                     </div>
                 </div>
 
-                <!-- الخطوة 1: إدخال بيانات النزيل وتاريخ الإقامة -->
+                <!-- الخطوة 1: شاشة تسجيل النزيل وتفاصيل الإقامة المحلية والأجنبية -->
                 <div class="step-content active" id="step1Content">
                     <form id="guestDetailsForm">
+                        <!-- اختيار نوع الإقامة: مواطن سوداني أو إقامة أجنبية -->
+                        <div style="margin-bottom: 18px;">
+                            <label style="display: block; font-size: 0.9rem; font-weight: 800; color: var(--p-900); margin-bottom: 8px;">
+                                <i class="fas fa-passport" style="color: var(--p-600);"></i> نوع إقامة النزيل (Residency Type):
+                            </label>
+                            <div class="residency-selector-box">
+                                <div class="residency-pill active" id="residencyLocalBtn">
+                                    <i class="fas fa-id-badge" style="color: var(--p-600); font-size: 24px;"></i>
+                                    <div>
+                                        <strong>مواطن سوداني (Sudanese Citizen)</strong>
+                                        <div style="font-size: 0.78rem; color: #6b7280;">إثبات الشخصية عبر الرقم الوطني</div>
+                                    </div>
+                                </div>
+                                <div class="residency-pill" id="residencyForeignBtn">
+                                    <i class="fas fa-globe-africa" style="color: var(--accent-gold); font-size: 24px;"></i>
+                                    <div>
+                                        <strong>إقامة أجنبية (Foreign Guest)</strong>
+                                        <div style="font-size: 0.78rem; color: #6b7280;">سياحة أو عمل عبر جواز السفر الدولي</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- التواريخ بتقويم تفاعلي -->
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
                             <div class="form-group">
-                                <label for="modalCheckIn"><i class="fas fa-calendar-alt"></i> تاريخ الوصول</label>
+                                <label for="modalCheckIn"><i class="fas fa-calendar-alt"></i> تاريخ الوصول (Check-in)</label>
                                 <input type="date" id="modalCheckIn" class="form-control" required>
                             </div>
                             <div class="form-group">
-                                <label for="modalCheckOut"><i class="fas fa-calendar-check"></i> تاريخ المغادرة (<span id="modalNightsDisplay">1 ليلة</span>)</label>
+                                <label for="modalCheckOut"><i class="fas fa-calendar-check"></i> تاريخ المغادرة (Check-out) (<span id="modalNightsDisplay">1 ليلة</span>)</label>
                                 <input type="date" id="modalCheckOut" class="form-control" required>
                             </div>
                         </div>
 
+                        <!-- اسم النزيل ورقم الهاتف -->
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
                             <div class="form-group">
                                 <label for="guestName"><i class="fas fa-user"></i> اسم النزيل بالكامل *</label>
-                                <input type="text" id="guestName" class="form-control" placeholder="مثال: أحمد عبد الله الفاتح" required>
+                                <input type="text" id="guestName" class="form-control" placeholder="مثال: محمد أحمد إبراهيم الشيخ" required>
                             </div>
                             <div class="form-group">
-                                <label for="guestPhone"><i class="fas fa-phone"></i> رقم الهاتف (سوداني) *</label>
-                                <input type="tel" id="guestPhone" class="form-control" placeholder="0912345678" required>
+                                <label for="guestPhone"><i class="fas fa-phone"></i> رقم الهاتف (سوداني أو دولي) *</label>
+                                <input type="tel" id="guestPhone" class="form-control" placeholder="0912345678 أو +249..." required>
                             </div>
                         </div>
 
+                        <!-- البريد الإلكتروني والجنسية -->
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
                             <div class="form-group">
-                                <label for="guestEmail"><i class="fas fa-envelope"></i> البريد الإلكتروني</label>
-                                <input type="email" id="guestEmail" class="form-control" placeholder="ahmed@example.com">
+                                <label for="guestEmail"><i class="fas fa-envelope"></i> البريد الإلكتروني (لتلقي رسالة التأكيد) *</label>
+                                <input type="email" id="guestEmail" class="form-control" placeholder="guest@example.com" required>
                             </div>
                             <div class="form-group">
-                                <label for="guestNationalId"><i class="fas fa-id-card"></i> الرقم الوطني / رقم الجواز</label>
-                                <input type="text" id="guestNationalId" class="form-control" placeholder="رقم الهوية الوطنية أو الجواز">
+                                <label for="guestNationality"><i class="fas fa-flag"></i> الجنسية</label>
+                                <input type="text" id="guestNationality" class="form-control" placeholder="سوداني، بريطاني، سعودي...">
+                            </div>
+                        </div>
+
+                        <!-- حقول الهوية أو الجواز حسب نوع الإقامة -->
+                        <div id="localIdFields" style="margin-bottom: 16px;">
+                            <div class="form-group">
+                                <label for="guestNationalId"><i class="fas fa-id-card"></i> الرقم الوطني السوداني</label>
+                                <input type="text" id="guestNationalId" class="form-control" placeholder="1029384756">
+                            </div>
+                        </div>
+
+                        <div id="foreignIdFields" style="display: none; margin-bottom: 16px;">
+                            <div class="form-group">
+                                <label for="guestPassport"><i class="fas fa-passport"></i> رقم جواز السفر الدولي (Passport No.) *</label>
+                                <input type="text" id="guestPassport" class="form-control" placeholder="e.g. GB-89210928">
                             </div>
                         </div>
 
                         <div class="form-group" style="margin-bottom: 24px;">
-                            <label for="guestNotes"><i class="fas fa-comment-dots"></i> طلبات خاصة (اختياري)</label>
-                            <input type="text" id="guestNotes" class="form-control" placeholder="مثال: سرير أطفال إضافي، طابق علوي، استقبال من المطار...">
+                            <label for="guestNotes"><i class="fas fa-comment-dots"></i> طلبات خاصة وتفضيلات الإقامة</label>
+                            <input type="text" id="guestNotes" class="form-control" placeholder="مثال: استقبال من المطار، طابق علوي، جلسة قهوة تقليدية...">
                         </div>
 
                         <div style="display: flex; justify-content: flex-end;">
-                            <button type="button" class="btn btn-gold" id="btnToPayment">
-                                المتابعة إلى الدفع الإلكتروني <i class="fas fa-arrow-left"></i>
+                            <button type="button" class="btn btn-purple" id="btnToPayment">
+                                المتابعة إلى خيارات الدفع <i class="fas fa-arrow-left"></i>
                             </button>
                         </div>
                     </form>
                 </div>
 
-                <!-- الخطوة 2: شاشة الدفع من داخل الموقع (In-site Payment) -->
+                <!-- الخطوة 2: خيارات الدفع والعملات -->
                 <div class="step-content" id="step2Content">
-                    <div style="background: #f8fafc; border: 1px solid var(--border-color); padding: 16px; border-radius: 12px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center;">
+                    <div style="background: var(--p-50); border: 1px solid var(--p-200); padding: 18px; border-radius: 14px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
                         <div>
-                            <span style="font-size: 0.88rem; color: var(--text-muted);">المبلغ المطلوب سداده الآن:</span>
-                            <h3 style="color: var(--primary); font-size: 1.6rem; font-weight: 900;" id="paymentAmountSummary">0 ج.س</h3>
+                            <span style="font-size: 0.85rem; color: var(--text-secondary);">المبلغ المطلوب سداده:</span>
+                            <h3 style="color: var(--p-950); font-size: 1.7rem; font-weight: 900;" id="paymentAmountSummary">0</h3>
                         </div>
-                        <div style="color: #10b981; font-weight: 700; font-size: 0.9rem; display: flex; align-items: center; gap: 6px;">
-                            <i class="fas fa-lock"></i> بوابة دفع مشفرة وآمنة 100%
+                        <div style="color: #059669; font-weight: 800; font-size: 0.9rem; display: flex; align-items: center; gap: 6px;">
+                            <i class="fas fa-shield-alt"></i> بوابة دفع فندقية مشفرة ومعتمدة
                         </div>
                     </div>
 
-                    <!-- اختيار وسيلة الدفع -->
+                    <!-- تبويبات خيارات الدفع المتعددة -->
                     <div class="payment-methods-tabs">
                         <div class="payment-tab-btn active" id="tabBankak">
-                            <i class="fas fa-mobile-alt" style="font-size: 26px; color: #dc2626;"></i>
-                            <strong style="font-size: 1rem;">تطبيق بنكك (Bankak)</strong>
-                            <span class="bankak-badge">بنك الخرطوم - الأكثر استخداماً</span>
+                            <i class="fas fa-mobile-alt" style="font-size: 24px; color: #dc2626;"></i>
+                            <strong>تطبيق بنكك (Bankak)</strong>
+                            <small style="color: #6b7280;">بنك الخرطوم (SDG)</small>
                         </div>
                         <div class="payment-tab-btn" id="tabCard">
-                            <i class="fas fa-credit-card" style="font-size: 26px; color: #0284c7;"></i>
-                            <strong style="font-size: 1rem;">بطاقة فيزا / ماستركارد</strong>
-                            <span class="badge-pill">الدفع المباشر بالبطاقة</span>
+                            <i class="fas fa-credit-card" style="font-size: 24px; color: var(--p-600);"></i>
+                            <strong>بطاقة بنكية / فيزا</strong>
+                            <small style="color: #6b7280;">SDG / USD / SAR</small>
+                        </div>
+                        <div class="payment-tab-btn" id="tabCash">
+                            <i class="fas fa-hand-holding-usd" style="font-size: 24px; color: #059669;"></i>
+                            <strong>سداد عند الوصول</strong>
+                            <small style="color: #6b7280;">Pay at Hotel</small>
                         </div>
                     </div>
 
-                    <!-- نموذج الدفع عبر بنكك -->
+                    <!-- نموذج بنكك -->
                     <div id="viewBankak">
-                        <div class="bankak-box">
-                            <div class="bankak-header">
-                                <div>
-                                    <h4 style="color: #fca5a5; margin-bottom: 2px;">حساب بنكك الرسمي لفنادق كورال:</h4>
-                                    <div style="font-size: 1.3rem; font-weight: 900; letter-spacing: 1px; color: #ffffff;">
-                                        1429801 <span style="font-size: 0.85rem; color: #fca5a5; font-weight: normal;">(بنك الخرطوم)</span>
-                                    </div>
-                                </div>
-                                <span class="bankak-account-pill">اسم الحساب: فندق كورال السودان</span>
+                        <div style="background: #1e1136; color: #ffffff; border-radius: 12px; padding: 20px; margin-bottom: 18px; border: 1px solid var(--p-400);">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.15); padding-bottom: 8px;">
+                                <h4 style="color: var(--accent-gold); margin: 0;">حساب بنكك الرسمي لفنادق كورال:</h4>
+                                <span style="background: rgba(220,38,38,0.25); color: #fca5a5; padding: 4px 10px; border-radius: 20px; font-size: 0.8rem; font-weight: bold;">بنك الخرطوم</span>
                             </div>
-                            <p style="font-size: 0.88rem; color: #e2e8f0; line-height: 1.6;">
-                                يمكنك التحويل المباشر من تطبيق بنكك إلى الحساب أعلاه، أو إدخال رقم حسابك / رقم المعاملة أدناه لتأكيد عملية الخصم الفوري والمباشر.
+                            <div style="font-size: 1.4rem; font-weight: 900; letter-spacing: 1px; color: #ffffff; margin-bottom: 6px;">
+                                1429801 <span style="font-size: 0.9rem; font-weight: normal; color: var(--p-200);">(اسم الحساب: فندق كورال السودان)</span>
+                            </div>
+                            <p style="font-size: 0.85rem; color: var(--p-100); margin: 0;">
+                                قم بالتحويل من تطبيق بنكك، ثم أدخل رقم حسابك أو رقم إشعار التحويل لتأكيد الحجز الفوري.
                             </p>
                         </div>
 
-                        <div class="form-group" style="margin-bottom: 20px;">
-                            <label for="bankakAccountNum"><i class="fas fa-wallet"></i> رقم حسابك أو رقم الإشعار في بنكك:</label>
-                            <input type="text" id="bankakAccountNum" class="form-control" placeholder="أدخل رقم حسابك أو رقم الإشعار (مثال: 2459812)">
+                        <div class="form-group" style="margin-bottom: 18px;">
+                            <label for="bankakAccountNum"><i class="fas fa-receipt"></i> رقم حسابك أو رقم الإشعار في تطبيق بنكك:</label>
+                            <input type="text" id="bankakAccountNum" class="form-control" placeholder="مثال: 2459812">
                         </div>
                     </div>
 
-                    <!-- نموذج الدفع بالبطاقة الائتمانية -->
+                    <!-- نموذج البطاقة البنكية -->
                     <div id="viewCard" style="display: none;">
-                        <div style="background: #f8fafc; border: 1px solid var(--border-color); border-radius: 12px; padding: 20px; margin-bottom: 20px;">
-                            <div class="form-group" style="margin-bottom: 16px;">
+                        <div style="background: var(--p-50); border: 1px solid var(--p-200); border-radius: 12px; padding: 18px; margin-bottom: 18px;">
+                            <div class="form-group" style="margin-bottom: 14px;">
                                 <label for="cardNum"><i class="fas fa-credit-card"></i> رقم البطاقة (16 رقماً):</label>
                                 <input type="text" id="cardNum" class="form-control" placeholder="XXXX XXXX XXXX XXXX" maxlength="19">
                             </div>
-
-                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px;">
                                 <div class="form-group">
                                     <label for="cardExpiry"><i class="fas fa-calendar"></i> تاريخ الانتهاء:</label>
                                     <input type="text" id="cardExpiry" class="form-control" placeholder="MM/YY" maxlength="5">
                                 </div>
                                 <div class="form-group">
-                                    <label for="cardCvv"><i class="fas fa-shield-alt"></i> رمز الأمان CVV:</label>
+                                    <label for="cardCvv"><i class="fas fa-lock"></i> رمز الأمان (CVV):</label>
                                     <input type="password" id="cardCvv" class="form-control" placeholder="123" maxlength="4">
                                 </div>
                             </div>
-
                             <div class="form-group">
-                                <label for="cardHolder"><i class="fas fa-user-check"></i> اسم حامل البطاقة (كما يظهر على البطاقة):</label>
-                                <input type="text" id="cardHolder" class="form-control" placeholder="AHMED A ABDULLAH">
+                                <label for="cardHolder"><i class="fas fa-user-check"></i> اسم حامل البطاقة:</label>
+                                <input type="text" id="cardHolder" class="form-control" placeholder="MOHAMMED A IBRAHIM">
                             </div>
+                        </div>
+                    </div>
+
+                    <!-- نموذج السداد عند الوصول -->
+                    <div id="viewCash" style="display: none;">
+                        <div style="background: #f0fdf4; border: 1px solid #bbf7d0; color: #166534; padding: 18px; border-radius: 12px; margin-bottom: 18px; font-size: 0.92rem; line-height: 1.7;">
+                            <i class="fas fa-info-circle" style="font-size: 18px; margin-left: 6px;"></i>
+                            <strong>الدفع المباشر عند مكتب الاستقبال:</strong><br>
+                            سيتم تأكيد حجزك وإرسال رسالة التأكيد فورياً إلى بريدك الإلكتروني. يمكنك سداد المبلغ نقداً أو بالبطاقة أو عبر بنكك عند تسجيل الوصول في الفندق (بالجنيه السوداني أو الدولار أو الريال).
                         </div>
                     </div>
 
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 24px;">
-                        <button type="button" class="btn btn-outline-gold" id="btnBackToDetails">
+                        <button type="button" class="btn btn-outline-purple" id="btnBackToDetails">
                             <i class="fas fa-arrow-right"></i> رجوع للبيانات
                         </button>
-                        <button type="button" class="btn btn-gold" id="btnConfirmPayment">
-                            <i class="fas fa-check-double"></i> إتمام الدفع وتأكيد الحجز الفوري
+                        <button type="button" class="btn btn-purple" id="btnConfirmPayment">
+                            <i class="fas fa-check-circle"></i> تأكيد الحجز وإرسال رسالة البريد
                         </button>
                     </div>
                 </div>
 
-                <!-- الخطوة 3: تأكيد الحجز بعد الدفع برسالة وسند إقامة معتمد -->
+                <!-- الخطوة 3: تأكيد الحجز ورسالة البريد الإلكتروني وسند الإقامة -->
                 <div class="step-content" id="step3Content">
-                    <div class="voucher-card">
-                        <div class="voucher-header">
-                            <div class="voucher-success-badge">
-                                <i class="fas fa-check"></i>
-                            </div>
-                            <h2 style="color: var(--primary); margin-bottom: 6px;">تم تأكيد حجزك ودفع المبلغ بنجاح!</h2>
-                            <p style="color: var(--text-muted); font-size: 0.95rem;">مرحباً بك في فندق كورال، نتمنى لك إقامة ممتعة واستثنائية.</p>
-                            
-                            <div style="margin-top: 14px;">
-                                <span style="font-size: 0.88rem; color: #64748b; font-weight: 700;">رقم الحجز المرجعي الخاص بك:</span><br>
-                                <div class="voucher-ref-code" id="voucherRefCode">CR-892104</div>
+                    <div style="background: #ffffff; border: 2px dashed var(--p-400); border-radius: 18px; padding: 28px; text-align: center; margin-bottom: 20px;">
+                        <div style="width: 64px; height: 64px; background: #059669; color: #ffffff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; margin: 0 auto 16px; box-shadow: 0 8px 20px rgba(5, 150, 105, 0.3);">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <h2 style="color: var(--p-950); margin-bottom: 6px;">تم تأكيد حجزك بنجاح!</h2>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem;">تم إرسال رسالة التأكيد الرسمية إلى بريدك الإلكتروني.</p>
+
+                        <div style="margin: 16px 0;">
+                            <span style="font-size: 0.85rem; color: var(--text-secondary);">رقم الحجز المرجعي:</span><br>
+                            <div style="display: inline-block; background: var(--p-950); color: var(--accent-gold); font-size: 1.45rem; font-weight: 900; padding: 8px 24px; border-radius: 10px; letter-spacing: 2px; margin-top: 6px;" id="voucherRefCode">
+                                CR-772901
                             </div>
                         </div>
 
-                        <!-- إشعار الرسالة التأكيدية للنزيل -->
-                        <div class="voucher-sms-preview">
-                            <i class="fas fa-sms" style="font-size: 26px; color: #166534;"></i>
-                            <div id="smsMessageText">
-                                <!-- سيتم تعبئته بواسطة JavaScript -->
+                        <!-- إشعار الرسالة التي وصلت بالبريد -->
+                        <div style="background: var(--p-50); border: 1px solid var(--p-200); padding: 16px; border-radius: 12px; margin: 18px 0; text-align: right; display: flex; align-items: flex-start; gap: 12px;">
+                            <i class="fas fa-envelope-open-text" style="font-size: 26px; color: var(--p-700); margin-top: 2px;"></i>
+                            <div style="flex-grow: 1;">
+                                <strong style="color: var(--p-950); font-size: 0.95rem;">تم إرسال رسالة التأكيد إلى بريدك الإلكتروني:</strong>
+                                <p style="color: var(--text-secondary); font-size: 0.88rem; margin: 4px 0 0;" id="emailSentNoticeText">
+                                    وصلتك رسالة تأكيد الحجز الآن متضمنة كود الحجز وتفاصيل الإقامة والفاتورة.
+                                </p>
                             </div>
                         </div>
 
-                        <!-- تفاصيل الفاتورة والسند -->
-                        <div class="voucher-details-grid">
-                            <div class="voucher-item">
-                                <div class="voucher-item-label">اسم النزيل الكريم:</div>
-                                <div class="voucher-item-value" id="voucherGuestName">أحمد عبد الله</div>
-                            </div>
-                            <div class="voucher-item">
-                                <div class="voucher-item-label">الفرع المحجوز:</div>
-                                <div class="voucher-item-value" id="voucherBranchName">فرع البحر الأحمر (بورتسودان)</div>
-                            </div>
-                            <div class="voucher-item">
-                                <div class="voucher-item-label">الغرفة / الجناح:</div>
-                                <div class="voucher-item-value" id="voucherRoomTitle">جناح المرجان الملكي</div>
-                            </div>
-                            <div class="voucher-item">
-                                <div class="voucher-item-label">فترة الإقامة:</div>
-                                <div class="voucher-item-value" id="voucherStayDates">2026-10-15 إلى 2026-10-18 (3 ليالٍ)</div>
-                            </div>
-                            <div class="voucher-item">
-                                <div class="voucher-item-label">المبلغ المدفوع:</div>
-                                <div class="voucher-item-value" id="voucherPaidAmount" style="color: #10b981;">555,000 ج.س</div>
-                            </div>
-                            <div class="voucher-item">
-                                <div class="voucher-item-label">طريقة الدفع والمعاملة:</div>
-                                <div class="voucher-item-value" id="voucherPayMethod">تطبيق بنكك</div>
-                                <small style="color: #64748b;" id="voucherTxnId">TXN-BNK-883492</small>
-                            </div>
-                        </div>
-
-                        <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 10px;">
-                            <button class="btn btn-gold" id="btnPrintVoucher">
+                        <!-- أزرار الإجراءات: فتح رسالة البريد وطباعة الفاتورة -->
+                        <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 20px;">
+                            <button class="btn btn-purple" id="btnViewEmailInbox">
+                                <i class="fas fa-inbox"></i> عرض رسالة البريد الإلكتروني المستلمة 📬
+                            </button>
+                            <button class="btn btn-outline-purple" id="btnPrintVoucher">
                                 <i class="fas fa-print"></i> طباعة الفاتورة وسند الإقامة
                             </button>
-                            <a href="guest-portal.html" class="btn btn-primary">
-                                <i class="fas fa-user-check"></i> متابعة الحجز في بوابة النزيل
+                            <a href="guest-portal.html" class="btn btn-gold">
+                                <i class="fas fa-search"></i> متابعة الحجز في بوابة النزيل
                             </a>
-                            <button class="btn btn-outline-gold" onclick="window.location.reload()">
-                                <i class="fas fa-redo"></i> حجز غرفة أخرى
-                            </button>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- نافذة محاكاة البريد الإلكتروني المستلم (Email Inbox Viewer) -->
+    <div class="modal-overlay" id="emailModal" style="display: none;">
+        <div class="email-modal-container">
+            <div class="email-inbox-header">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-envelope" style="color: var(--p-700); font-size: 20px;"></i>
+                    <strong style="color: var(--p-950); font-size: 1rem;">صندوق البريد الإلكتروني للنزيل (Inbox)</strong>
+                </div>
+                <button id="closeEmailModalBtn" style="background: none; border: none; font-size: 24px; cursor: pointer; color: #6b7280;">&times;</button>
+            </div>
+            <div class="email-inbox-body" id="emailInboxContent">
+                <!-- محتوى الإيميل المنسق -->
+            </div>
+            <div style="padding: 14px 20px; background: #f8fafc; border-top: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 0.8rem; color: #6b7280;">مرسل من: reservations@coralhotels-sd.com</span>
+                <button class="btn btn-purple btn-sm" onclick="window.print()"><i class="fas fa-print"></i> طباعة الإيميل</button>
             </div>
         </div>
     </div>
